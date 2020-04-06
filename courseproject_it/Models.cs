@@ -48,16 +48,16 @@ namespace courseproject_it
     	public string Status {get;set;}
     	public string Description {get;set;}
     }
-    }
-class ResultMedContext : DbContext
+        public class ResultMedContext : DbContext
         {
-        public ResultMedContext()
-           : base("DBConnection")
+            public ResultMedContext()
+               : base("DBConnection")
             { }
 
             public DbSet<Person> Persons { get; set; }
             //public DbSet<Team> Teams {get;set;}
         }
-}
+    }
 
 }
+
