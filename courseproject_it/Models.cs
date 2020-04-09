@@ -32,6 +32,7 @@ namespace courseproject_it_models
     	public int Id {get;set;}
     	public string Category {get;set;}
     	public string Description {get;set;}
+   //test branch
     }
     public class Category_Person //категории для человека
     {
