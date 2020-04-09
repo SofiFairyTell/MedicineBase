@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.Data.Entity;
 namespace courseproject_it
 {
-    class 
-
    public class Person //освидетельствуемый
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set;}
+        public string Name { get; set;}
         public string Middlename { get; set; }
         public string Surname { get; set; }
         public string Category_Person {get;set;}//категория_освидетельствуемого
