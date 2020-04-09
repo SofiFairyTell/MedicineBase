@@ -32,7 +32,7 @@ namespace courseproject_it
     	public string Category {get;set;}
     	public string Description {get;set;}
     }
-    public class Category_Person
+    public class Category_Person //категории для человека
     {
     	public string Category {get;set;}
     	public string Description {get;set;}
