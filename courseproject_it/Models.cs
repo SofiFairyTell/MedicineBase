@@ -17,7 +17,7 @@ namespace courseproject_it
         public string Birthday {get;set;}//позже сделать через поле времени
         public string Article_Trebovanie {get;set;}
         public string Article_Raspisanie {get;set;}
-         public string Diagnos {get;set;}
+        public string Diagnos {get;set;}
         public string Category_Godnost {get;set;}
         public string Result {get;set;} //заключение
         public int Result_Id {get;set;}
@@ -31,7 +31,6 @@ namespace courseproject_it
     	public int Id {get;set;}
     	public string Category {get;set;}
     	public string Description {get;set;}
-   //test branch
     }
     public class Category_Person
     {
@@ -58,6 +57,3 @@ namespace courseproject_it
             //public DbSet<Team> Teams {get;set;}
         }
     }
-
-}
-
