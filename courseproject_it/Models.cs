@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 namespace courseproject_it
 {
-    class 
+   
 
    public class Person //освидетельствуемый
     {
@@ -20,7 +20,7 @@ namespace courseproject_it
          public string Diagnos {get;set;}
         public string Category_Godnost {get;set;}
         public string Result {get;set;} //заключение
-        public int? Result_Id {get;set;}
+        public int Result_Id {get;set;}
         public string Result_Date {get;set;}
         public string Result_Prichina {get;set;}
         public string Other {get;set;}      
