@@ -15,7 +15,6 @@ namespace courseproject_it
         public Form1()
         {
             InitializeComponent();
-            //furn fgjsfdg
         }
     }
 }
