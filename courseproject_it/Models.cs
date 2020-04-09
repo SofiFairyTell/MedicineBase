@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 namespace courseproject_it
 {
-    class Models
-    {
+    class 
 
    public class Person //освидетельствуемый
     {
@@ -18,10 +17,10 @@ namespace courseproject_it
         public string Birthday {get;set;}//позже сделать через поле времени
         public string Article_Trebovanie {get;set;}
         public string Article_Raspisanie {get;set;}
-        public string Diagnos {get;set;}
+         public string Diagnos {get;set;}
         public string Category_Godnost {get;set;}
         public string Result {get;set;} //заключение
-        public int Result_Id {get;set;}
+        public int? Result_Id {get;set;}
         public string Result_Date {get;set;}
         public string Result_Prichina {get;set;}
         public string Other {get;set;}      
