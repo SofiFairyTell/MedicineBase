@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Data.Entity;
+//git@github.com:SofiFairyTell/courseproject_it.git HTTPS://github.com/SofiFairyTell/courseproject_it.git 
 namespace courseproject_it
 {
    public class Person //освидетельствуемый
