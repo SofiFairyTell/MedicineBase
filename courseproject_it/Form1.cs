@@ -19,6 +19,7 @@ namespace courseproject_it
             InitializeComponent();
             db = new ResultMedContext();
             db.Persons.Load();
+            //вывод на форме таблицы
             dataGridView1.DataSource = db.Persons.Local.ToBindingList();
         }
 
