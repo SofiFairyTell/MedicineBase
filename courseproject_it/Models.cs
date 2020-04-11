@@ -34,8 +34,8 @@ namespace courseproject_it
     {
     	public string Category {get;set;}
     	public string Description {get;set;}
-        public ICollection<Person> Pers_list { get; set; } //список людей выбранной категории
-        public Category_Person
+        public ICollection<Person> Pers_list {get; set;} //список людей выбранной категории
+        public Category_Person()
             {
                 Pers_list = new List<Person>();
             }
@@ -50,7 +50,7 @@ namespace courseproject_it
     	public string Status {get;set;}
     	public string Description {get;set;}
         public ICollection<Person> Pers_Arm_list { get; set; }
-        public 
+        public Arm_Status()
             {
                 Pers_Arm_list = new List<Person>();
             }
@@ -59,7 +59,7 @@ namespace courseproject_it
   public class ResultMedContext : DbContext
         {
             public ResultMedContext()
-               : base("DBConnection")
+               : base("ResultMed")
             { }
 
             public DbSet<Person> Persons { get; set; }
