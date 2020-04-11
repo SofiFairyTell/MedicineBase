@@ -34,6 +34,11 @@ namespace courseproject_it
     {
     	public string Category {get;set;}
     	public string Description {get;set;}
+        public ICollection<Person> Pers_list { get; set; } //список людей выбранной категории
+        public Category_Person
+            {
+                Pers_list = new List<Person>();
+            }
     }
     public class Result_Prichina
     {
@@ -44,8 +49,14 @@ namespace courseproject_it
     {
     	public string Status {get;set;}
     	public string Description {get;set;}
+        public ICollection<Person> Pers_Arm_list { get; set; }
+        public 
+            {
+                Pers_Arm_list = new List<Person>();
+            }
+
     }
-        public class ResultMedContext : DbContext
+  public class ResultMedContext : DbContext
         {
             public ResultMedContext()
                : base("DBConnection")
@@ -54,4 +65,4 @@ namespace courseproject_it
             public DbSet<Person> Persons { get; set; }
             //public DbSet<Team> Teams {get;set;}
         }
-    }
+}
