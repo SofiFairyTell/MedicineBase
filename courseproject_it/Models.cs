@@ -13,7 +13,8 @@ namespace courseproject_it
         public string Surname { get; set; }
         public string Category_Person {get;set;}//категория_освидетельствуемого
         public string Arm_Status {get;set;}//
-        public string Birthday {get;set;}//позже сделать через поле времени
+        public string Birthday {get;set;}//позже сделать через поле времени 
+        //public DateTime Birtday {get;set;}
         public string Article_Trebovanie {get;set;}
         public string Article_Raspisanie {get;set;}
         public string Diagnos {get;set;}
