@@ -184,7 +184,7 @@
             // 
             // personBindingSource
             // 
-            this.personBindingSource.DataSource = typeof(courseproject_it.Person);
+            this.personBindingSource.DataSource = typeof(courseproject_it_models.Person);
             // 
             // Form1
             // 

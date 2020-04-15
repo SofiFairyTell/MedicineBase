@@ -5,6 +5,7 @@ using System.Data.Entity;
 //git@github.com:SofiFairyTell/courseproject_it.git HTTPS://github.com/SofiFairyTell/courseproject_it.git 
 namespace courseproject_it_models
 {
+  // [Table("Person")]
    public class Person //освидетельствуемый
     {
         public int Id { get; set; }
@@ -65,6 +66,7 @@ namespace courseproject_it_models
             { }
 
             public DbSet<Person> Persons { get; set; }
+            public DbSet<Category_Person> TableCategory { get; set; }
             //public DbSet<Team> Teams {get;set;}
         }
 }
