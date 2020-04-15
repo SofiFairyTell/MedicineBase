@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +46,7 @@
             this.resultDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.resultPrichinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.otherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -73,14 +74,12 @@
             this.resultPrichinaDataGridViewTextBoxColumn,
             this.otherDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.personBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(-3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1564, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(1920, 174);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataSource = typeof(courseproject_it.Person);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -183,12 +182,17 @@
             this.otherDataGridViewTextBoxColumn.HeaderText = "Примечание";
             this.otherDataGridViewTextBoxColumn.Name = "otherDataGridViewTextBoxColumn";
             // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(courseproject_it.Person);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1540, 332);
+            this.ClientSize = new System.Drawing.Size(1924, 409);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Результаты ВВК";
             this.Load += new System.EventHandler(this.Form1_Load);

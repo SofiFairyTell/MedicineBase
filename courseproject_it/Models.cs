@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Data.Entity;
 //git@github.com:SofiFairyTell/courseproject_it.git HTTPS://github.com/SofiFairyTell/courseproject_it.git 
-namespace courseproject_it
+namespace courseproject_it_models
 {
    public class Person //освидетельствуемый
     {
