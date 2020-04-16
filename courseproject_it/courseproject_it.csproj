@@ -68,6 +68,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004152329062_InitialCreate.cs" />
+    <Compile Include="Migrations\202004152329062_InitialCreate.designer.cs">
+      <DependentUpon>202004152329062_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004152356041_AddNewTables.cs" />
+    <Compile Include="Migrations\202004152356041_AddNewTables.designer.cs">
+      <DependentUpon>202004152356041_AddNewTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +85,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004152329062_InitialCreate.resx">
+      <DependentUpon>202004152329062_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004152356041_AddNewTables.resx">
+      <DependentUpon>202004152356041_AddNewTables.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -2,10 +2,11 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 //git@github.com:SofiFairyTell/courseproject_it.git HTTPS://github.com/SofiFairyTell/courseproject_it.git 
 namespace courseproject_it_models
 {
-  // [Table("Person")]
+  [Table("Освидетельствуемый")]
    public class Person //освидетельствуемый
     {
         public int Id { get; set; }
@@ -24,41 +25,56 @@ namespace courseproject_it_models
         public int Result_Id {get;set;}
         public string Result_Date {get;set;}
         public string Result_Prichina {get;set;}
-        public string Other {get;set;}      
+        public string Other {get;set;}   
+
+        public ICollection<Category_Godnost> Godnost_list {get; set;} //список людей выбранной категории
+        public ICollection<Category_Person> Category_list {get; set;} //список людей выбранной категории
+        public ICollection<Arm_Status> Pers_Arm_list { get; set; }       
+        public ICollection<Result_Prichina> ResPrich_list { get; set; }
+        public Person()
+            {
+                Godnost_list = new List<Category_Godnost>();
+                Category_list = new List<Category_Person>();
+                Pers_Arm_list = new List<Arm_Status>();
+                ResPrich_list = new List<Result_Prichina>();
+            }   
+   
     }
+
 //таблицы для подстановки значений в таблицу Освидетельствуемый
+    [Table("Категория годности")]
     public class Category_Godnost
     {
     	public int Id {get;set;}
     	public string Category {get;set;}
     	public string Description {get;set;}
+        public Person Person;
     }
+    [Table("Категория освидетельствуемого")]
     public class Category_Person
     {
-    	public string Category {get;set;}
+    	public int Id {get;set;}
+        public string Category {get;set;}
     	public string Description {get;set;}
-        public ICollection<Person> Pers_list {get; set;} //список людей выбранной категории
-        public Category_Person()
-            {
-                Pers_list = new List<Person>();
-            }
+        public Person Person;
     }
-    public class Result_Prichina
-    {
-    	public string Prichina {get;set;}
-    	public string Description {get;set;}
-    }
+    [Table("Воинское звание")]
     public class Arm_Status
     {
-    	public string Status {get;set;}
-    	public string Description {get;set;}
-        public ICollection<Person> Pers_Arm_list { get; set; }
-        public Arm_Status()
-            {
-                Pers_Arm_list = new List<Person>();
-            }
-
+        public int Id {get;set;}
+        public string Status {get;set;}
+        public string Description {get;set;}
+        public Person Person;
     }
+    [Table("Причинно-следственные связи")]
+    public class Result_Prichina
+    {
+    	public int Id {get;set;}
+        public string Prichina {get;set;}
+    	public string Description {get;set;}
+        public Person Person;
+    }
+
   public class ResultMedContext : DbContext
         {
             public ResultMedContext()
@@ -66,7 +82,7 @@ namespace courseproject_it_models
             { }
 
             public DbSet<Person> Persons { get; set; }
-            public DbSet<Category_Person> TableCategory { get; set; }
+          //public DbSet<Category_Person>  { get; set; }
             //public DbSet<Team> Teams {get;set;}
         }
 }
