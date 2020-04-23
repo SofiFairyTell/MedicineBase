@@ -47,6 +47,7 @@
             this.resultPrichinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.otherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AddButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +76,7 @@
             this.otherDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.personBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 2);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1920, 174);
             this.dataGridView1.TabIndex = 0;
@@ -186,13 +187,24 @@
             // 
             this.personBindingSource.DataSource = typeof(courseproject_it_models.Person);
             // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(12, 202);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(154, 38);
+            this.AddButton.TabIndex = 7;
+            this.AddButton.Text = "Добавить запись";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 409);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Результаты ВВК";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -222,6 +234,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn resultPrichinaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn otherDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource personBindingSource;
+        protected internal System.Windows.Forms.Button AddButton;
     }
 }
 

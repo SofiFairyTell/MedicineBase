@@ -32,5 +32,22 @@ namespace courseproject_it
         {
 
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddForm AddForm = new AddForm();
+            DialogResult result = AddForm.ShowDialog(this);
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            Person person = new Person();
+            person.Surname = AddForm.SurnameTextBox.Text;
+            person.Name = AddForm.NamTextBox.Text;
+            person.Middlename = AddForm.MiddNamTextBox.Text;
+            db.Persons.Add(person);
+            db.SaveChanges();
+            MessageBox.Show("Новый объект добавлен");
+        }
     }
 }

@@ -102,6 +102,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\courseproject_it_models.Arm_Status.datasource" />
+    <None Include="Properties\DataSources\courseproject_it_models.Category_Godnost.datasource" />
+    <None Include="Properties\DataSources\courseproject_it_models.Category_Person.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
