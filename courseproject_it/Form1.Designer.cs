@@ -197,6 +197,16 @@
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
+            // AddButton
+            // 
+            this.AddButton.Location = new System.Drawing.Point(12, 202);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(154, 38);
+            this.AddButton.TabIndex = 7;
+            this.AddButton.Text = "Добавить запись";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
