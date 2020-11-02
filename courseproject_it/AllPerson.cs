@@ -11,10 +11,10 @@ using System.Data.Entity;
 using courseproject_it_models;
 namespace courseproject_it
 {
-    public partial class Form1 : Form
+    public partial class AllPerson : Form
     {
         ResultMedContext db;
-        public Form1()
+        public AllPerson()
         {
             InitializeComponent();
             db = new ResultMedContext();

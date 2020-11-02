@@ -1,6 +1,6 @@
 ﻿namespace courseproject_it
 {
-    partial class Form1
+    partial class AllPerson
     {
         /// <summary>
         /// Обязательная переменная конструктора.

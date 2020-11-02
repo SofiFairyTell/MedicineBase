@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace courseproject_it
+namespace Больница
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace courseproject_it
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AllPerson());
+            Application.Run(new Form1());
         }
     }
 }
