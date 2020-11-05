@@ -4,19 +4,22 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 //git@github.com:SofiFairyTell/courseproject_it.git HTTPS://github.com/SofiFairyTell/courseproject_it.git 
-namespace courseproject_it_models
+namespace Result_models
 {
   [Table("Освидетельствуемый")]
    public class Person //освидетельствуемый
     {
+        /*Общие данные о пользователе*/
         public int Id { get; set; }
         public string Name { get; set; }
         public string Middlename { get; set; }
         public string Surname { get; set; }
+        /*Категории*/
         public string Category_Person {get;set;}//категория_освидетельствуемого
         public string Arm_Status {get;set;}//
         public string Birthday {get;set;}//позже сделать через поле времени 
         //public DateTime Birtday {get;set;}
+        /*Все что связано с диагнозом*/
         public string Article_Trebovanie {get;set;}
         public string Article_Raspisanie {get;set;}
         public string Diagnos {get;set;}
@@ -27,6 +30,7 @@ namespace courseproject_it_models
         public string Result_Prichina {get;set;}
         public string Other {get;set;}   
 
+        /*Списки для создания таблиц*/
         public ICollection<Category_Godnost> Godnost_list {get; set;} //список людей выбранной категории
         public ICollection<Category_Person> Category_list {get; set;} //список людей выбранной категории
         public ICollection<Arm_Status> Pers_Arm_list { get; set; }       
