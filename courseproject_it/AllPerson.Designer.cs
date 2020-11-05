@@ -1,4 +1,4 @@
-﻿namespace courseproject_it
+﻿namespace Result
 {
     partial class AllPerson
     {
@@ -185,7 +185,7 @@
             // 
             // personBindingSource
             // 
-            this.personBindingSource.DataSource = typeof(courseproject_it_models.Person);
+            this.personBindingSource.DataSource = typeof(Result_models.Person);
             // 
             // AddButton
             // 

@@ -1,4 +1,4 @@
-﻿namespace courseproject_it
+﻿namespace Result
 {
     partial class AddForm
     {
@@ -142,7 +142,7 @@
             // 
             // categoryPersonBindingSource
             // 
-            this.categoryPersonBindingSource.DataSource = typeof(courseproject_it_models.Category_Person);
+            this.categoryPersonBindingSource.DataSource = typeof(Result_models.Category_Person);
             // 
             // label4
             // 
@@ -173,7 +173,7 @@
             // 
             // armStatusBindingSource
             // 
-            this.armStatusBindingSource.DataSource = typeof(courseproject_it_models.Arm_Status);
+            this.armStatusBindingSource.DataSource = typeof(Result_models.Arm_Status);
             this.armStatusBindingSource.CurrentChanged += new System.EventHandler(this.armStatusBindingSource_CurrentChanged);
             // 
             // label6
@@ -196,7 +196,7 @@
             // 
             // categoryGodnostBindingSource
             // 
-            this.categoryGodnostBindingSource.DataSource = typeof(courseproject_it_models.Category_Godnost);
+           // this.categoryGodnostBindingSource.DataSource = typeof(Result_models.Category_Godnost);
             // 
             // article_raspisanie
             // 

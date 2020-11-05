@@ -5,15 +5,15 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<courseproject_it_models.ResultMedContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Result_models.ResultMedContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "courseproject_it_models.ResultMedContext";
+            ContextKey = "Result_models.ResultMedContext";
         }
 
-        protected override void Seed(courseproject_it_models.ResultMedContext context)
+        protected override void Seed(Result_models.ResultMedContext context)
         {
             //  This method will be called after migrating to the latest version.
 

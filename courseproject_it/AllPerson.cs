@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
-using courseproject_it_models;
-namespace courseproject_it
+using Result_models;
+
+namespace Result
 {
     public partial class AllPerson : Form
     {
