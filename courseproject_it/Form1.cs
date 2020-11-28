@@ -19,7 +19,7 @@ namespace Result
         {
             InitializeComponent();
             db = new ResultMedContext();
-            db.Persons.Load();
+            db.Persons.Load();//опять не грузится. Почнму??
             //вывод на форме таблицы
             dataGridView1.DataSource = db.Persons.Local.ToBindingList();
         }
@@ -42,10 +42,12 @@ namespace Result
             if (result == DialogResult.Cancel)
                 return;
 
-            Person person = new Person();
-            person.Surname = AddForm.SurnameTextBox.Text;
-            person.Name = AddForm.NamTextBox.Text;
-            person.Middlename = AddForm.MiddNamTextBox.Text;
+            Person person = new Person
+            {
+                Surname = AddForm.SurnameTextBox.Text,
+                Name = AddForm.NamTextBox.Text,
+                Middlename = AddForm.MiddNamTextBox.Text
+            };         
             db.Persons.Add(person);
             db.SaveChanges();
             MessageBox.Show("Новый объект добавлен");
