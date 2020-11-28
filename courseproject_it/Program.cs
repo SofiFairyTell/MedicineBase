@@ -16,8 +16,8 @@ namespace Result
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new AllPerson());
-            Application.Run(new SecureForm());
+            Application.Run(new AllPerson());
+           // Application.Run(new SecureForm());
         }
     }
 }

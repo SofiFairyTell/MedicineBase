@@ -9,15 +9,17 @@ namespace Result_models
   [Table("Освидетельствуемый")]
    public class Person //освидетельствуемый
     {
-        /*Общие данные о пользователе*/
+        /*Общие данные об освидетельствуемом*/
         public int Id { get; set; }
         public string Name { get; set; }
         public string Middlename { get; set; }
         public string Surname { get; set; }
+        public string Birthday {get;set;}//позже сделать через поле времени 
+        
         /*Категории*/
         public string Category_Person {get;set;}//категория_освидетельствуемого
         public string Arm_Status {get;set;}//
-        public string Birthday {get;set;}//позже сделать через поле времени 
+        
         //public DateTime Birtday {get;set;}
         /*Все что связано с диагнозом*/
         public string Article_Trebovanie {get;set;}
