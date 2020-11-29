@@ -139,6 +139,7 @@
             this.category_person.Size = new System.Drawing.Size(239, 24);
             this.category_person.TabIndex = 7;
             this.category_person.ValueMember = "Category";
+            this.category_person.SelectedIndexChanged += new System.EventHandler(this.category_person_SelectedIndexChanged);
             // 
             // categoryPersonBindingSource
             // 
