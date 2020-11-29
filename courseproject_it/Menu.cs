@@ -33,5 +33,11 @@ namespace Result
             AddForm Добавить = new AddForm();
             Добавить.Show();
         }
+
+        private void OpenAnalizForm_Click(object sender, EventArgs e)
+        {
+            PersonsTreeView Аналитика = new PersonsTreeView();
+            Аналитика.Show();
+        }
     }
 }

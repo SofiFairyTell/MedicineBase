@@ -131,14 +131,11 @@
             // 
             // category_person
             // 
-            this.category_person.DataSource = this.categoryPersonBindingSource;
-            this.category_person.DisplayMember = "Category";
             this.category_person.FormattingEnabled = true;
             this.category_person.Location = new System.Drawing.Point(610, 31);
             this.category_person.Name = "category_person";
             this.category_person.Size = new System.Drawing.Size(239, 24);
             this.category_person.TabIndex = 7;
-            this.category_person.ValueMember = "Category";
             this.category_person.SelectedIndexChanged += new System.EventHandler(this.category_person_SelectedIndexChanged);
             // 
             // categoryPersonBindingSource
@@ -165,7 +162,6 @@
             // 
             // arm_status
             // 
-            this.arm_status.DataSource = this.armStatusBindingSource;
             this.arm_status.FormattingEnabled = true;
             this.arm_status.Location = new System.Drawing.Point(610, 79);
             this.arm_status.Name = "arm_status";
@@ -187,7 +183,6 @@
             // 
             // category_godnost
             // 
-            this.category_godnost.DataSource = this.categoryGodnostBindingSource;
             this.category_godnost.FormattingEnabled = true;
             this.category_godnost.Location = new System.Drawing.Point(610, 129);
             this.category_godnost.Name = "category_godnost";

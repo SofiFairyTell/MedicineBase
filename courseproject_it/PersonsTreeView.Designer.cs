@@ -61,17 +61,19 @@
             treeNode5});
             this.PersonsTreView.Size = new System.Drawing.Size(374, 572);
             this.PersonsTreView.TabIndex = 0;
+            this.PersonsTreView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.PersonsTreView_AfterSelect);
             this.PersonsTreView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.PersonsTreView_NodeMouseDoubleClick);
+            this.PersonsTreView.Click += new System.EventHandler(this.PersonsTreView_Click);
             this.PersonsTreView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PersonsTreView_MouseDoubleClick);
             // 
             // DataDescriptionGrid
             // 
             this.DataDescriptionGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataDescriptionGrid.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DataDescriptionGrid.Location = new System.Drawing.Point(391, 0);
+            this.DataDescriptionGrid.Location = new System.Drawing.Point(380, 0);
             this.DataDescriptionGrid.Name = "DataDescriptionGrid";
             this.DataDescriptionGrid.RowTemplate.Height = 24;
-            this.DataDescriptionGrid.Size = new System.Drawing.Size(627, 572);
+            this.DataDescriptionGrid.Size = new System.Drawing.Size(809, 572);
             this.DataDescriptionGrid.TabIndex = 1;
             this.DataDescriptionGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataList_CellContentClick);
             // 
@@ -79,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1018, 572);
+            this.ClientSize = new System.Drawing.Size(1189, 572);
             this.Controls.Add(this.DataDescriptionGrid);
             this.Controls.Add(this.PersonsTreView);
             this.MaximizeBox = false;

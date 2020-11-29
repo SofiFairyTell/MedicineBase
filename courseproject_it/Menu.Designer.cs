@@ -56,6 +56,7 @@
             this.OpenAnalizForm.TabIndex = 1;
             this.OpenAnalizForm.Text = "Аналитика";
             this.OpenAnalizForm.UseVisualStyleBackColor = true;
+            this.OpenAnalizForm.Click += new System.EventHandler(this.OpenAnalizForm_Click);
             // 
             // OpenAddForm
             // 

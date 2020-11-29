@@ -16,6 +16,39 @@ namespace Result
         public PersonsTreeView()
         {
             InitializeComponent();
+            List<string> Category_List = new List<string>();//категория освидетельствуемого
+            Category_List.AddRange(new string[]
+            {
+                "01 - Граждане, поступающие на военную службу по контракту",
+                "02 - Граждане, поступающие в образовательные организации",
+                "03 - Граждане, призываемые на военные сборы",
+                "04 - Военнослужащие, проходящие военную службу по контракту",
+                "05 - Военнослужащие, проходящие военную службу по призыву",
+                "06 - Слушатели, курсанты образовательных организаций до заключения первого контракта о прохождении военной службы",
+                "07 - Граждане, пребывающие в запасе ФСБ России",
+                "08 - Граждане, проходящие военные сборы",
+                "09 - Граждане, прошедшие военную службу",
+                "10 - Члены семей военнослужащих",
+                "11 - Прочие"
+            });
+            try
+            {
+                /*Добавление данных о категории в список*/
+                foreach (var item in Category_List)
+                {
+
+                   // node.Text = item;
+                    PersonsTreView.Nodes[0].Nodes[0].Nodes.Add("Категория", item);
+                       
+                }
+                
+                
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при добавлении!\nДополнительные сведения:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DataList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,20 +85,61 @@ namespace Result
                                 */
                 using (var context = new Result_models.ResultMedContext())
                 {
-                    var Data = context.Persons.Where(x => x.Surname == node.Text).FirstOrDefault();//ишем в базе то, что записано TreView
-                    DataDescriptionGrid.Columns.Add("Name","");
+                    var Data = context.Persons.Where(x => x.Category_Person == node.Text).FirstOrDefault();//найдет только первый элемент, беда, что записано TreView
+                    //var Data = context.Persons.Find(node.Text);
+                    //foreach(IGrouping<int, Result_models.Person> group in Dt)
+                    //{
+                    //    foreach (Person person in group)
+                    //    {
+                    //        DataDescriptionGrid.Columns.Add("Surname", "Фамилия");
+                    //        DataDescriptionGrid.Columns.Add("Name", "Имя");
+                    //        DataDescriptionGrid.Columns.Add("MiddleName", "Отчество");
+                    //        DataDescriptionGrid.Columns.Add("Diagnos", "Диагноз");
+                    //        DataDescriptionGrid.Columns.Add("Result", "Результат");
+
+
+                    //        DataDescriptionGrid.Rows.Add(1);
+                    //        DataDescriptionGrid.Rows[0].Cells[0].Value = person.Surname.ToString();//записываем в таблицу или выводим таблицу
+                    //        DataDescriptionGrid.Rows[0].Cells[1].Value = person.Name.ToString();//записываем в таблицу или выводим таблицу
+                    //        DataDescriptionGrid.Rows[0].Cells[2].Value = person.Middlename.ToString();//записываем в таблицу или выводим таблицу
+                    //        DataDescriptionGrid.Rows[0].Cells[3].Value = person.Diagnos.ToString();//записываем в таблицу или выводим таблицу
+                    //        DataDescriptionGrid.Rows[0].Cells[4].Value = person.Result.ToString();//записываем в таблицу или выводим таблицу
+
+                    //    }
+                    //}
+                    DataDescriptionGrid.Columns.Add("Surname", "Фамилия");
+                    DataDescriptionGrid.Columns.Add("Name", "Имя");
+                    DataDescriptionGrid.Columns.Add("MiddleName", "Отчество");
+                    DataDescriptionGrid.Columns.Add("Diagnos", "Диагноз");
+                    DataDescriptionGrid.Columns.Add("Result", "Результат");
+
+
                     DataDescriptionGrid.Rows.Add(1);
-                    DataDescriptionGrid.Rows[0].Cells[0].Value = Data.Name.ToString();//записываем в таблицу или выводим таблицу
+                    DataDescriptionGrid.Rows[0].Cells[0].Value = Data.Surname.ToString();//записываем в таблицу или выводим таблицу
+                    DataDescriptionGrid.Rows[0].Cells[1].Value = Data.Name.ToString();//записываем в таблицу или выводим таблицу
+                    DataDescriptionGrid.Rows[0].Cells[2].Value = Data.Middlename.ToString();//записываем в таблицу или выводим таблицу
+                    DataDescriptionGrid.Rows[0].Cells[3].Value = Data.Diagnos.ToString();//записываем в таблицу или выводим таблицу
+                    DataDescriptionGrid.Rows[0].Cells[4].Value = Data.Result.ToString();//записываем в таблицу или выводим таблицу
+
                 }
-                //    var index = MedList.FindIndex(x => x.MedicName.Contains(node.Text));
-                //DataDescriptionGrid.Rows[0].Cells[1].Value = MedList[index].MedicName;
-                //DataDescriptionGrid.Rows[1].Cells[1].Value = MedList[index].Index; //индекс это номер элемента в списке
-                //DataDescriptionGrid.Rows[2].Cells[1].Value = MedList[index].Child; //индекс это номер элемента в списке
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при щелчке по узлу!\nДополнительные сведения:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void PersonsTreView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void PersonsTreView_Click(object sender, EventArgs e)
+        {
+          
+
+
         }
     }
 }
