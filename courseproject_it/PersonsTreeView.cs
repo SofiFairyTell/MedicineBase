@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,14 +37,8 @@ namespace Result
                 /*Добавление данных о категории в список*/
                 foreach (var item in Category_List)
                 {
-
-                   // node.Text = item;
-                    PersonsTreView.Nodes[0].Nodes[0].Nodes.Add("Категория", item);
-                       
+                    PersonsTreView.Nodes[0].Nodes[0].Nodes.Add("Категория", item);                      
                 }
-                
-                
-                
             }
             catch (Exception ex)
             {
@@ -51,95 +46,68 @@ namespace Result
             }
         }
 
-        private void DataList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-          
-
-        private void PersonsTreView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void PersonsTreView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            /*После двойного нажатия но узлу из базы будет выведен список всех людей, у которых одно
+             из полей совпадает с содержанием узла*/
             try
             {
 
                 TreeNode node = PersonsTreView.SelectedNode;// Получение выбранного двойным щелчком узла дерева.
 
                 MessageBox.Show(string.Format("You selected: {0}", node.Text)); // Вывод окна с текстом данного узла.
-                /*
-                DataDescriptionGrid.Rows.Clear();
-                DataDescriptionGrid.Columns.Clear();
-                DataGridInit();
-                DataDescriptionGrid.ReadOnly = true;
-                DataDescriptionGrid.Visible = true;
-                AddButton.BringToFront();*/
-                /*
-                                MinimButton.Visible = true;//для закрытия информации об узле
-                                EditButton.Visible = true;//для изменения данных в содержимом узла
-                                AddButton.Visible = true;
-                                DelButton.Visible = true;
-                                */
+
+
+
                 using (var context = new Result_models.ResultMedContext())
                 {
-                    var Data = context.Persons.Where(x => x.Category_Person == node.Text).FirstOrDefault();//найдет только первый элемент, беда, что записано TreView
-                    //var Data = context.Persons.Find(node.Text);
-                    //foreach(IGrouping<int, Result_models.Person> group in Dt)
-                    //{
-                    //    foreach (Person person in group)
-                    //    {
-                    //        DataDescriptionGrid.Columns.Add("Surname", "Фамилия");
-                    //        DataDescriptionGrid.Columns.Add("Name", "Имя");
-                    //        DataDescriptionGrid.Columns.Add("MiddleName", "Отчество");
-                    //        DataDescriptionGrid.Columns.Add("Diagnos", "Диагноз");
-                    //        DataDescriptionGrid.Columns.Add("Result", "Результат");
+                    /*------------Удалим ранее введенные данные---------*/
+                    DataDescriptionGrid.Rows.Clear();
+                    DataDescriptionGrid.Columns.Clear();
+                    /*-------------------------------------------------*/
 
-
-                    //        DataDescriptionGrid.Rows.Add(1);
-                    //        DataDescriptionGrid.Rows[0].Cells[0].Value = person.Surname.ToString();//записываем в таблицу или выводим таблицу
-                    //        DataDescriptionGrid.Rows[0].Cells[1].Value = person.Name.ToString();//записываем в таблицу или выводим таблицу
-                    //        DataDescriptionGrid.Rows[0].Cells[2].Value = person.Middlename.ToString();//записываем в таблицу или выводим таблицу
-                    //        DataDescriptionGrid.Rows[0].Cells[3].Value = person.Diagnos.ToString();//записываем в таблицу или выводим таблицу
-                    //        DataDescriptionGrid.Rows[0].Cells[4].Value = person.Result.ToString();//записываем в таблицу или выводим таблицу
-
-                    //    }
-                    //}
+                    /*------Наименования столбцов----------------------*/
                     DataDescriptionGrid.Columns.Add("Surname", "Фамилия");
                     DataDescriptionGrid.Columns.Add("Name", "Имя");
                     DataDescriptionGrid.Columns.Add("MiddleName", "Отчество");
                     DataDescriptionGrid.Columns.Add("Diagnos", "Диагноз");
                     DataDescriptionGrid.Columns.Add("Result", "Результат");
+                    /*-------------------------------------------------*/
 
+                    /*--------Найдем в БД освидетельствуемого с нужной категорией--------------*/
+                    var Person_tb = from u in context.Persons where u.Category_Person == node.Text select u;
 
-                    DataDescriptionGrid.Rows.Add(1);
-                    DataDescriptionGrid.Rows[0].Cells[0].Value = Data.Surname.ToString();//записываем в таблицу или выводим таблицу
-                    DataDescriptionGrid.Rows[0].Cells[1].Value = Data.Name.ToString();//записываем в таблицу или выводим таблицу
-                    DataDescriptionGrid.Rows[0].Cells[2].Value = Data.Middlename.ToString();//записываем в таблицу или выводим таблицу
-                    DataDescriptionGrid.Rows[0].Cells[3].Value = Data.Diagnos.ToString();//записываем в таблицу или выводим таблицу
-                    DataDescriptionGrid.Rows[0].Cells[4].Value = Data.Result.ToString();//записываем в таблицу или выводим таблицу
+                    if(Person_tb != null)
+                    {
+                     /*---Определим сколько необходимо создать строк для загрузки данных-------*/
+                        int rows = Person_tb.Count();
+                        DataDescriptionGrid.Rows.Add(rows);
+                        int i = 0;
+                    /*--------------------------Начало загрузки данных----------------------*/
+                        foreach (var person in Person_tb)
+                            {
+                                DataDescriptionGrid.Rows[i].Cells[0].Value = person.Surname.ToString();
+                                DataDescriptionGrid.Rows[i].Cells[1].Value = person.Name.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[2].Value = person.Middlename.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[3].Value = person.Diagnos.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[4].Value = person.Result.ToString();//записываем в таблицу или выводим таблицу
+                                if (i!= rows) //увеличим счетчик для новой строки
+                                    i++;
+                            }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"По вашему запросу ничего не найдено!\n", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                   
 
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при щелчке по узлу!\nДополнительные сведения:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void PersonsTreView_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void PersonsTreView_Click(object sender, EventArgs e)
-        {
-          
-
-
-        }
     }
 }

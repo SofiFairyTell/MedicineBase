@@ -61,10 +61,8 @@
             treeNode5});
             this.PersonsTreView.Size = new System.Drawing.Size(374, 572);
             this.PersonsTreView.TabIndex = 0;
-            this.PersonsTreView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.PersonsTreView_AfterSelect);
             this.PersonsTreView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.PersonsTreView_NodeMouseDoubleClick);
-            this.PersonsTreView.Click += new System.EventHandler(this.PersonsTreView_Click);
-            this.PersonsTreView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PersonsTreView_MouseDoubleClick);
+
             // 
             // DataDescriptionGrid
             // 
@@ -75,7 +73,6 @@
             this.DataDescriptionGrid.RowTemplate.Height = 24;
             this.DataDescriptionGrid.Size = new System.Drawing.Size(809, 572);
             this.DataDescriptionGrid.TabIndex = 1;
-            this.DataDescriptionGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataList_CellContentClick);
             // 
             // PersonsTreeView
             // 
