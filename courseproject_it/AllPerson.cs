@@ -22,6 +22,8 @@ namespace Result
             db.Persons.Load();//опять не грузится. Почнму??
             //вывод на форме таблицы
             dataGridView1.DataSource = db.Persons.Local.ToBindingList();
+
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,15 +44,15 @@ namespace Result
             if (result == DialogResult.Cancel)
                 return;
 
-            Person person = new Person
-            {
-                Surname = AddForm.SurnameTextBox.Text,
-                Name = AddForm.NamTextBox.Text,
-                Middlename = AddForm.MiddNamTextBox.Text
-            };         
-            db.Persons.Add(person);
-            db.SaveChanges();
-            MessageBox.Show("Новый объект добавлен");
+            //Person person = new Person
+            //{
+            //    Surname = AddForm.SurnameTextBox.Text,
+            //    Name = AddForm.NamTextBox.Text,
+            //    Middlename = AddForm.MiddNamTextBox.Text
+            //};         
+            //db.Persons.Add(person);
+            //db.SaveChanges();
+            //MessageBox.Show("Новый объект добавлен");
         }
     }
 }

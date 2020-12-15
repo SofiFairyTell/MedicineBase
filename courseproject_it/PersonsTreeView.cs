@@ -72,8 +72,12 @@ namespace Result
                     DataDescriptionGrid.Columns.Add("MiddleName", "Отчество");
                     DataDescriptionGrid.Columns.Add("Diagnos", "Диагноз");
                     DataDescriptionGrid.Columns.Add("Result", "Результат");
+                    DataDescriptionGrid.Columns.Add("Doctor", "Врач");
                     /*-------------------------------------------------*/
 
+                    DataDescriptionGrid.Columns[4].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    DataDescriptionGrid.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; //автоматическое выравнивание текста в колонке
+                    DataDescriptionGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
                     /*--------Найдем в БД освидетельствуемого с нужной категорией--------------*/
                     var Person_tb = from u in context.Persons where u.Category_Person == node.Text select u;
 

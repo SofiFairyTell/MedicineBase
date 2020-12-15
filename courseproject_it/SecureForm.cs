@@ -73,6 +73,9 @@ namespace Result
 
         }
 
+        private void СообщениеПароль_Popup(object sender, PopupEventArgs e)
+        {
 
+        }
     }
 }

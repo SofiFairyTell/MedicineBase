@@ -62,6 +62,8 @@
             this.Diagnos = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ChairmanTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPersonBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.armStatusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryGodnostBindingSource)).BeginInit();
@@ -121,7 +123,7 @@
             // AddButton
             // 
             this.AddButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.AddButton.Location = new System.Drawing.Point(331, 400);
+            this.AddButton.Location = new System.Drawing.Point(568, 460);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(154, 38);
             this.AddButton.TabIndex = 6;
@@ -324,18 +326,37 @@
             // CancelButton
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(510, 400);
+            this.CancelButton.Location = new System.Drawing.Point(742, 460);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(154, 38);
             this.CancelButton.TabIndex = 29;
             this.CancelButton.Text = "Отмена";
             this.CancelButton.UseVisualStyleBackColor = true;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(404, 418);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(134, 17);
+            this.label16.TabIndex = 30;
+            this.label16.Text = "Председатель ВВК";
+            // 
+            // ChairmanTextBox
+            // 
+            this.ChairmanTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ChairmanTextBox.Location = new System.Drawing.Point(558, 418);
+            this.ChairmanTextBox.Name = "ChairmanTextBox";
+            this.ChairmanTextBox.Size = new System.Drawing.Size(373, 22);
+            this.ChairmanTextBox.TabIndex = 31;
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 450);
+            this.ClientSize = new System.Drawing.Size(944, 510);
+            this.Controls.Add(this.ChairmanTextBox);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.Diagnos);
             this.Controls.Add(this.label15);
@@ -429,5 +450,7 @@
         private System.Windows.Forms.BindingSource categoryPersonBindingSource;
         private System.Windows.Forms.BindingSource armStatusBindingSource;
         private System.Windows.Forms.BindingSource categoryGodnostBindingSource;
+        private System.Windows.Forms.Label label16;
+        protected internal System.Windows.Forms.TextBox ChairmanTextBox;
     }
 }

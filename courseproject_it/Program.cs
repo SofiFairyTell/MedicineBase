@@ -14,6 +14,7 @@ namespace Result
         [STAThread]
         static void Main()
         {
+            Animator.Start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new AllPerson());
