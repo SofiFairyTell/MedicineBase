@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4045DE1-0F2F-46BE-8F14-8A0D1F13BE1B}</ProjectGuid>
+    <ProjectGuid>{D178A791-5CA4-4B6A-B566-A18B993F5C1D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>courseproject_it</RootNamespace>
-    <AssemblyName>courseproject_it</AssemblyName>
+    <RootNamespace>Result</RootNamespace>
+    <AssemblyName>Result</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -37,16 +37,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,73 +59,46 @@
     <Compile Include="AddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForm.Designer.cs">
-      <DependentUpon>AddForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="AddForm.Designer.cs" />
     <Compile Include="AllPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AllPerson.Designer.cs">
-      <DependentUpon>AllPerson.cs</DependentUpon>
+    <Compile Include="AllPerson.Designer.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011282103020_InitialCreate.cs" />
-    <Compile Include="Migrations\202011282103020_InitialCreate.Designer.cs">
-      <DependentUpon>202011282103020_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012160031273_delete.cs" />
-    <Compile Include="Migrations\202012160031273_delete.designer.cs">
-      <DependentUpon>202012160031273_delete.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Menu.Designer.cs" />
     <Compile Include="Models.cs" />
     <Compile Include="PersonsTreeView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonsTreeView.Designer.cs">
-      <DependentUpon>PersonsTreeView.cs</DependentUpon>
-    </Compile>
+    <Compile Include="PersonsTreeView.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecureForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecureForm.Designer.cs">
-      <DependentUpon>SecureForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Элементы управления\Анимация\Animation.cs" />
-    <Compile Include="Элементы управления\Анимация\Animator.cs" />
-    <Compile Include="Элементы управления\Анимация\FlatColors.cs" />
-    <Compile Include="Элементы управления\Элементы\ButtonNew.cs">
+    <Compile Include="SecureForm.Designer.cs" />
+    <Compile Include="Элементы управления\Animation.cs" />
+    <Compile Include="Элементы управления\Animator.cs" />
+    <Compile Include="Элементы управления\ButtonNew.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Элементы управления\Элементы\Drawer.cs" />
-    <Compile Include="Элементы управления\Элементы\TextBoxNew.cs">
+    <Compile Include="Элементы управления\Drawer.cs" />
+    <Compile Include="Элементы управления\FlatColors.cs" />
+    <Compile Include="Элементы управления\TextBoxNew.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="AddForm.resx">
-      <DependentUpon>AddForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AllPerson.resx">
-      <DependentUpon>AllPerson.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011282103020_InitialCreate.resx">
-      <DependentUpon>202011282103020_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012160031273_delete.resx">
-      <DependentUpon>202012160031273_delete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PersonsTreeView.resx">
-      <DependentUpon>PersonsTreeView.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="AddForm.resx" />
+    <EmbeddedResource Include="AllPerson.resx" />
+    <EmbeddedResource Include="Menu.resx" />
+    <EmbeddedResource Include="PersonsTreeView.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -137,14 +108,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SecureForm.resx">
-      <DependentUpon>SecureForm.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="SecureForm.resx" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\courseproject_it_models.Arm_Status.datasource" />
-    <None Include="Properties\DataSources\courseproject_it_models.Category_Godnost.datasource" />
-    <None Include="Properties\DataSources\courseproject_it_models.Category_Person.datasource" />
-    <None Include="Properties\DataSources\Person.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -156,18 +121,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>
