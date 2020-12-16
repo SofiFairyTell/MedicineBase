@@ -9,11 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Result_models;
+using System.Windows;
+
+/*Для экпорта в Excel*/
+using Microsoft.Office.Interop.Excel;
+
 
 namespace Result
 {
+    
     public partial class PersonsTreeView : Form
     {
+        string Name; //имя файла формируется из имени категории
         public PersonsTreeView()
         {
             InitializeComponent();
@@ -57,7 +64,7 @@ namespace Result
 
                 MessageBox.Show(string.Format("You selected: {0}", node.Text)); // Вывод окна с текстом данного узла.
 
-
+                Name = node.Text;
 
                 using (var context = new Result_models.ResultMedContext())
                 {
@@ -114,5 +121,41 @@ namespace Result
             }
         }
 
+        private void ExportToExcel(string Name)
+        {
+            Microsoft.Office.Interop.Excel.Application exApp = new Microsoft.Office.Interop.Excel.Application();
+            exApp.Visible = true;
+            exApp.Workbooks.Add();
+            Worksheet workSheet = (Worksheet)exApp.ActiveSheet;
+            workSheet.Cells[1, 1] = "Фамилия";
+            workSheet.Cells[1, 2] = "Имя";
+            workSheet.Cells[1, 3] = "Отчество";
+            workSheet.Cells[1, 4] = "Диагноз";
+            workSheet.Cells[1, 5] = "Результат";
+            workSheet.Cells[1, 6] = "Врач";
+            int rowExcel = 2;
+            for (int i = 0; i < DataDescriptionGrid.Rows.Count; i++)
+            {
+                workSheet.Cells[rowExcel, "A"] = DataDescriptionGrid.Rows[i].Cells[0].Value;
+                workSheet.Cells[rowExcel, "B"] = DataDescriptionGrid.Rows[i].Cells[1].Value;
+                workSheet.Cells[rowExcel, "C"] = DataDescriptionGrid.Rows[i].Cells[2].Value;
+                workSheet.Cells[rowExcel, "D"] = DataDescriptionGrid.Rows[i].Cells[3].Value;
+                workSheet.Cells[rowExcel, "E"] = DataDescriptionGrid.Rows[i].Cells[4].Value;
+                workSheet.Cells[rowExcel, "F"] = DataDescriptionGrid.Rows[i].Cells[5].Value;
+
+                ++rowExcel;
+            }
+
+            string directory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = (Name + ".xls");
+            string path2 = directory + "\\";
+            workSheet.SaveAs(directory+Name);
+            exApp.Quit();
+        }
+
+        private void ExportExcellButton_DoubleClick(object sender, EventArgs e)
+        {
+            ExportToExcel(Name);
+        }
     }
 }

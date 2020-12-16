@@ -77,7 +77,7 @@ namespace Result
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            лdb.SaveChanges();
+            db.SaveChanges();
             MessageBox.Show("Изменения сохранены", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
