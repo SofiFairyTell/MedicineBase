@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Result_models;
-using System.Windows;
 
 /*Для экпорта в Excel*/
 using Microsoft.Office.Interop.Excel;
@@ -79,6 +78,7 @@ namespace Result
                     DataDescriptionGrid.Columns.Add("MiddleName", "Отчество");
                     DataDescriptionGrid.Columns.Add("Diagnos", "Диагноз");
                     DataDescriptionGrid.Columns.Add("Result", "Результат");
+                    DataDescriptionGrid.Columns.Add("Date", "Дата");
                     DataDescriptionGrid.Columns.Add("Doctor", "Врач");
                     /*-------------------------------------------------*/
 
@@ -102,10 +102,15 @@ namespace Result
                                 DataDescriptionGrid.Rows[i].Cells[2].Value = person.Middlename.ToString();//записываем в таблицу или выводим таблицу
                                 DataDescriptionGrid.Rows[i].Cells[3].Value = person.Diagnos.ToString();//записываем в таблицу или выводим таблицу
                                 DataDescriptionGrid.Rows[i].Cells[4].Value = person.Result.ToString();//записываем в таблицу или выводим таблицу
-                                DataDescriptionGrid.Rows[i].Cells[5].Value = person.Other.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[5].Value = person.Result_Date.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[6].Value = person.Other.ToString();//записываем в таблицу или выводим таблицу
                             if (i!= rows) //увеличим счетчик для новой строки
                                     i++;
+                            
                             }
+                        DataDescriptionGrid.Rows[i].Cells[5].Value ="Итого по категории:";//записываем в таблицу или выводим таблицу
+                        DataDescriptionGrid.Rows[i].Cells[6].Value = Person_tb.Count();//записываем в таблицу или выводим таблицу
+
                     }
                     else
                     {
@@ -123,34 +128,45 @@ namespace Result
 
         private void ExportToExcel(string Name)
         {
-            Microsoft.Office.Interop.Excel.Application exApp = new Microsoft.Office.Interop.Excel.Application();
-            exApp.Visible = true;
-            exApp.Workbooks.Add();
-            Worksheet workSheet = (Worksheet)exApp.ActiveSheet;
-            workSheet.Cells[1, 1] = "Фамилия";
-            workSheet.Cells[1, 2] = "Имя";
-            workSheet.Cells[1, 3] = "Отчество";
-            workSheet.Cells[1, 4] = "Диагноз";
-            workSheet.Cells[1, 5] = "Результат";
-            workSheet.Cells[1, 6] = "Врач";
-            int rowExcel = 2;
-            for (int i = 0; i < DataDescriptionGrid.Rows.Count; i++)
+            try
             {
-                workSheet.Cells[rowExcel, "A"] = DataDescriptionGrid.Rows[i].Cells[0].Value;
-                workSheet.Cells[rowExcel, "B"] = DataDescriptionGrid.Rows[i].Cells[1].Value;
-                workSheet.Cells[rowExcel, "C"] = DataDescriptionGrid.Rows[i].Cells[2].Value;
-                workSheet.Cells[rowExcel, "D"] = DataDescriptionGrid.Rows[i].Cells[3].Value;
-                workSheet.Cells[rowExcel, "E"] = DataDescriptionGrid.Rows[i].Cells[4].Value;
-                workSheet.Cells[rowExcel, "F"] = DataDescriptionGrid.Rows[i].Cells[5].Value;
 
-                ++rowExcel;
+                Microsoft.Office.Interop.Excel.Application exApp = new Microsoft.Office.Interop.Excel.Application();
+                exApp.Visible = true;
+                exApp.Workbooks.Add();
+                Worksheet workSheet = (Worksheet)exApp.ActiveSheet;
+                workSheet.Cells[1, 1] = "Фамилия";
+                workSheet.Cells[1, 2] = "Имя";
+                workSheet.Cells[1, 3] = "Отчество";
+                workSheet.Cells[1, 4] = "Диагноз";
+                workSheet.Cells[1, 5] = "Результат";
+                workSheet.Cells[1, 6] = "Дата";
+                workSheet.Cells[1, 7] = "Врач";
+                int rowExcel = 2;
+                for (int i = 0; i < DataDescriptionGrid.Rows.Count; i++)
+                {
+                    workSheet.Cells[rowExcel, "A"] = DataDescriptionGrid.Rows[i].Cells[0].Value;
+                    workSheet.Cells[rowExcel, "B"] = DataDescriptionGrid.Rows[i].Cells[1].Value;
+                    workSheet.Cells[rowExcel, "C"] = DataDescriptionGrid.Rows[i].Cells[2].Value;
+                    workSheet.Cells[rowExcel, "D"] = DataDescriptionGrid.Rows[i].Cells[3].Value;
+                    workSheet.Cells[rowExcel, "E"] = DataDescriptionGrid.Rows[i].Cells[4].Value;
+                    workSheet.Cells[rowExcel, "F"] = DataDescriptionGrid.Rows[i].Cells[5].Value;
+                    workSheet.Cells[rowExcel, "G"] = DataDescriptionGrid.Rows[i].Cells[6].Value;
+
+                    ++rowExcel;
+                }
+                //На последней строке выведем итого по категории
+
+                string directory = AppDomain.CurrentDomain.BaseDirectory;
+                string path = (Name + ".xls");
+                string path2 = directory + "\\";
+                workSheet.SaveAs(directory + Name);
+                exApp.Quit();
             }
-
-            string directory = AppDomain.CurrentDomain.BaseDirectory;
-            string path = (Name + ".xls");
-            string path2 = directory + "\\";
-            workSheet.SaveAs(directory+Name);
-            exApp.Quit();
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ошибка при щелчке по узлу!\nДополнительные сведения:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ExportExcellButton_DoubleClick(object sender, EventArgs e)

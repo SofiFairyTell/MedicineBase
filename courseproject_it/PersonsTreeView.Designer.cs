@@ -30,13 +30,9 @@
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Список по категориям");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Список по должности");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Иванов");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Фамилии", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Список освидетельствуемых", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Список освидетельствуемых", new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2,
-            treeNode4});
+            treeNode2});
             this.PersonsTreView = new System.Windows.Forms.TreeView();
             this.DataDescriptionGrid = new System.Windows.Forms.DataGridView();
             this.ExportExcellButton = new Result.ButtonNew();
@@ -52,47 +48,44 @@
             treeNode1.Text = "Список по категориям";
             treeNode2.Name = "ArmStatusList";
             treeNode2.Text = "Список по должности";
-            treeNode3.Name = "Ivanov";
-            treeNode3.Text = "Иванов";
-            treeNode4.Name = "SurnameList";
-            treeNode4.Text = "Фамилии";
-            treeNode5.Name = "PersonList";
-            treeNode5.Text = "Список освидетельствуемых";
+            treeNode3.Name = "PersonList";
+            treeNode3.Text = "Список освидетельствуемых";
             this.PersonsTreView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            this.PersonsTreView.Size = new System.Drawing.Size(374, 572);
+            treeNode3});
+            this.PersonsTreView.Size = new System.Drawing.Size(342, 572);
             this.PersonsTreView.TabIndex = 0;
             this.PersonsTreView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.PersonsTreView_NodeMouseDoubleClick);
             // 
             // DataDescriptionGrid
             // 
             this.DataDescriptionGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataDescriptionGrid.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DataDescriptionGrid.Location = new System.Drawing.Point(380, 0);
+            this.DataDescriptionGrid.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DataDescriptionGrid.Location = new System.Drawing.Point(342, 0);
             this.DataDescriptionGrid.Name = "DataDescriptionGrid";
             this.DataDescriptionGrid.RowTemplate.Height = 24;
-            this.DataDescriptionGrid.Size = new System.Drawing.Size(809, 572);
+            this.DataDescriptionGrid.Size = new System.Drawing.Size(1073, 572);
             this.DataDescriptionGrid.TabIndex = 1;
             // 
             // ExportExcellButton
             // 
-            this.ExportExcellButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.ExportExcellButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.ExportExcellButton.BackColorAdditional = System.Drawing.Color.Gray;
             this.ExportExcellButton.BackColorGradientEnabled = false;
             this.ExportExcellButton.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
-            this.ExportExcellButton.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.ExportExcellButton.BorderColor = System.Drawing.Color.MidnightBlue;
             this.ExportExcellButton.BorderColorEnabled = false;
             this.ExportExcellButton.BorderColorOnHover = System.Drawing.Color.Tomato;
             this.ExportExcellButton.BorderColorOnHoverEnabled = false;
             this.ExportExcellButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExportExcellButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.ExportExcellButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.ExportExcellButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ExportExcellButton.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.ExportExcellButton.ForeColor = System.Drawing.Color.White;
-            this.ExportExcellButton.Location = new System.Drawing.Point(380, 520);
+            this.ExportExcellButton.Location = new System.Drawing.Point(342, 500);
             this.ExportExcellButton.Name = "ExportExcellButton";
             this.ExportExcellButton.RippleColor = System.Drawing.Color.Black;
             this.ExportExcellButton.RoundingEnable = false;
-            this.ExportExcellButton.Size = new System.Drawing.Size(809, 51);
+            this.ExportExcellButton.Size = new System.Drawing.Size(1073, 72);
             this.ExportExcellButton.TabIndex = 2;
             this.ExportExcellButton.Text = "Сохранить в Excell";
             this.ExportExcellButton.TextHover = null;
@@ -105,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1189, 572);
+            this.ClientSize = new System.Drawing.Size(1415, 572);
             this.Controls.Add(this.ExportExcellButton);
             this.Controls.Add(this.DataDescriptionGrid);
             this.Controls.Add(this.PersonsTreView);
