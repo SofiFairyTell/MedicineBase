@@ -81,16 +81,14 @@ namespace Result_models
         public Person Person;
     }
 
-  public class ResultMedContext : DbContext
+      public class ResultMedContext : DbContext
+      {
+        public ResultMedContext() : base("ResultMed")
         {
-            public ResultMedContext()
-               : base("ResultMed")
-            {
-            Database.SetInitializer<ResultMedContext>(null);
+            Database.SetInitializer<ResultMedContext>(null); //если модель будет изменена, то будет создана новая бд?
         }
-        
-            public DbSet<Person> Persons { get; set; }
-          //public DbSet<Category_Person>  { get; set; }
-            //public DbSet<Team> Teams {get;set;}
-        }
+        public DbSet<Person> Persons { get; set; }
+        //public DbSet<Category_Person>  { get; set; }
+        //public DbSet<Team> Teams {get;set;}
+      }
 }

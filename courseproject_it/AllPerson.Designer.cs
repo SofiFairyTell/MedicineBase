@@ -47,7 +47,9 @@
             this.resultPrichinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.otherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.AddButton = new System.Windows.Forms.Button();
+            this.AddButton = new Result.ButtonNew();
+            this.DelButton = new Result.ButtonNew();
+            this.SaveButton = new Result.ButtonNew();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -189,19 +191,92 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(710, 359);
+            this.AddButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.AddButton.BackColorAdditional = System.Drawing.Color.Gray;
+            this.AddButton.BackColorGradientEnabled = false;
+            this.AddButton.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.AddButton.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.AddButton.BorderColorEnabled = false;
+            this.AddButton.BorderColorOnHover = System.Drawing.Color.Tomato;
+            this.AddButton.BorderColorOnHoverEnabled = false;
+            this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.AddButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.Location = new System.Drawing.Point(606, 371);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(154, 38);
-            this.AddButton.TabIndex = 7;
+            this.AddButton.RippleColor = System.Drawing.Color.Black;
+            this.AddButton.RoundingEnable = false;
+            this.AddButton.Size = new System.Drawing.Size(193, 38);
+            this.AddButton.TabIndex = 8;
             this.AddButton.Text = "Добавить запись";
-            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.TextHover = null;
+            this.AddButton.UseDownPressEffectOnClick = false;
+            this.AddButton.UseRippleEffect = true;
+            this.AddButton.UseZoomEffectOnHover = false;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // DelButton
+            // 
+            this.DelButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.DelButton.BackColorAdditional = System.Drawing.Color.Gray;
+            this.DelButton.BackColorGradientEnabled = false;
+            this.DelButton.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.DelButton.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.DelButton.BorderColorEnabled = false;
+            this.DelButton.BorderColorOnHover = System.Drawing.Color.Tomato;
+            this.DelButton.BorderColorOnHoverEnabled = false;
+            this.DelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DelButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.DelButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.DelButton.ForeColor = System.Drawing.Color.White;
+            this.DelButton.Location = new System.Drawing.Point(834, 371);
+            this.DelButton.Name = "DelButton";
+            this.DelButton.RippleColor = System.Drawing.Color.Black;
+            this.DelButton.RoundingEnable = false;
+            this.DelButton.Size = new System.Drawing.Size(193, 38);
+            this.DelButton.TabIndex = 9;
+            this.DelButton.Text = "Удалить запись";
+            this.DelButton.TextHover = null;
+            this.DelButton.UseDownPressEffectOnClick = false;
+            this.DelButton.UseRippleEffect = true;
+            this.DelButton.UseZoomEffectOnHover = false;
+            this.DelButton.Click += new System.EventHandler(this.DelButton_Click);
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.SaveButton.BackColorAdditional = System.Drawing.Color.Gray;
+            this.SaveButton.BackColorGradientEnabled = false;
+            this.SaveButton.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            this.SaveButton.BorderColor = System.Drawing.Color.DeepSkyBlue;
+            this.SaveButton.BorderColorEnabled = false;
+            this.SaveButton.BorderColorOnHover = System.Drawing.Color.Tomato;
+            this.SaveButton.BorderColorOnHoverEnabled = false;
+            this.SaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.SaveButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.SaveButton.ForeColor = System.Drawing.Color.White;
+            this.SaveButton.Location = new System.Drawing.Point(1055, 371);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.RippleColor = System.Drawing.Color.Black;
+            this.SaveButton.RoundingEnable = false;
+            this.SaveButton.Size = new System.Drawing.Size(193, 38);
+            this.SaveButton.TabIndex = 10;
+            this.SaveButton.Text = "Сохранить изменения";
+            this.SaveButton.TextHover = null;
+            this.SaveButton.UseDownPressEffectOnClick = false;
+            this.SaveButton.UseRippleEffect = true;
+            this.SaveButton.UseZoomEffectOnHover = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // AllPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 409);
+            this.ClientSize = new System.Drawing.Size(1924, 421);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.DelButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -234,7 +309,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn resultPrichinaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn otherDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource personBindingSource;
-        protected internal System.Windows.Forms.Button AddButton;
+        private ButtonNew AddButton;
+        private ButtonNew DelButton;
+        private ButtonNew SaveButton;
     }
 }
 
