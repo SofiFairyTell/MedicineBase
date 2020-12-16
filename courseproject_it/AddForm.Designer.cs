@@ -19,7 +19,7 @@
             }
             base.Dispose(disposing);
         }
-
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -37,11 +37,9 @@
             this.MiddNamTextBox = new System.Windows.Forms.TextBox();
             this.AddButton = new System.Windows.Forms.Button();
             this.category_person = new System.Windows.Forms.ComboBox();
-            this.categoryPersonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.arm_status = new System.Windows.Forms.ComboBox();
-            this.armStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.category_godnost = new System.Windows.Forms.ComboBox();
             this.categoryGodnostBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -57,14 +55,18 @@
             this.article_trebovanie = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label14 = new System.Windows.Forms.Label();
-            this.result = new System.Windows.Forms.TextBox();
-            this.Diagnos = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ChairmanTextBox = new System.Windows.Forms.TextBox();
+            this.result_date = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Diagnos = new Result.EgoldsGoogleTextBox();
+            this.result = new Result.EgoldsGoogleTextBox();
+            this.categoryPersonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.armStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryGodnostBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPersonBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.armStatusBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryGodnostBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -121,7 +123,7 @@
             // AddButton
             // 
             this.AddButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.AddButton.Location = new System.Drawing.Point(331, 400);
+            this.AddButton.Location = new System.Drawing.Point(568, 460);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(154, 38);
             this.AddButton.TabIndex = 6;
@@ -137,10 +139,6 @@
             this.category_person.Size = new System.Drawing.Size(239, 24);
             this.category_person.TabIndex = 7;
             this.category_person.SelectedIndexChanged += new System.EventHandler(this.category_person_SelectedIndexChanged);
-            // 
-            // categoryPersonBindingSource
-            // 
-            this.categoryPersonBindingSource.DataSource = typeof(Result_models.Category_Person);
             // 
             // label4
             // 
@@ -167,10 +165,6 @@
             this.arm_status.Name = "arm_status";
             this.arm_status.Size = new System.Drawing.Size(239, 24);
             this.arm_status.TabIndex = 9;
-            // 
-            // armStatusBindingSource
-            // 
-            this.armStatusBindingSource.DataSource = typeof(Result_models.Arm_Status);
             // 
             // label6
             // 
@@ -287,60 +281,105 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(179, 22);
             this.dateTimePicker1.TabIndex = 24;
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(12, 283);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(76, 17);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Результат";
-            // 
-            // result
-            // 
-            this.result.Location = new System.Drawing.Point(95, 283);
-            this.result.Multiline = true;
-            this.result.Name = "result";
-            this.result.Size = new System.Drawing.Size(373, 89);
-            this.result.TabIndex = 26;
-            // 
-            // Diagnos
-            // 
-            this.Diagnos.Location = new System.Drawing.Point(558, 283);
-            this.Diagnos.Multiline = true;
-            this.Diagnos.Name = "Diagnos";
-            this.Diagnos.Size = new System.Drawing.Size(373, 89);
-            this.Diagnos.TabIndex = 28;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(475, 283);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 17);
-            this.label15.TabIndex = 27;
-            this.label15.Text = "Диагноз";
-            // 
             // CancelButton
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(510, 400);
+            this.CancelButton.Location = new System.Drawing.Point(742, 460);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(154, 38);
             this.CancelButton.TabIndex = 29;
             this.CancelButton.Text = "Отмена";
             this.CancelButton.UseVisualStyleBackColor = true;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(404, 418);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(134, 17);
+            this.label16.TabIndex = 30;
+            this.label16.Text = "Председатель ВВК";
+            // 
+            // ChairmanTextBox
+            // 
+            this.ChairmanTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ChairmanTextBox.Location = new System.Drawing.Point(558, 418);
+            this.ChairmanTextBox.Name = "ChairmanTextBox";
+            this.ChairmanTextBox.Size = new System.Drawing.Size(373, 22);
+            this.ChairmanTextBox.TabIndex = 31;
+            // 
+            // result_date
+            // 
+            this.result_date.Location = new System.Drawing.Point(558, 389);
+            this.result_date.Name = "result_date";
+            this.result_date.Size = new System.Drawing.Size(373, 22);
+            this.result_date.TabIndex = 33;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(465, 389);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(73, 17);
+            this.label17.TabIndex = 32;
+            this.label17.Text = "Дата ВВК";
+            // 
+            // Diagnos
+            // 
+            this.Diagnos.BackColor = System.Drawing.Color.White;
+            this.Diagnos.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.Diagnos.BorderColorNotActive = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.Diagnos.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Diagnos.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.Diagnos.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.Diagnos.ForeColor = System.Drawing.Color.Black;
+            this.Diagnos.Location = new System.Drawing.Point(483, 283);
+            this.Diagnos.MultiLine = true;
+            this.Diagnos.Name = "Diagnos";
+            this.Diagnos.Size = new System.Drawing.Size(448, 89);
+            this.Diagnos.TabIndex = 35;
+            this.Diagnos.TextInput = "Диагноз";
+            this.Diagnos.TextPreview = "Диагноз";
+            this.Diagnos.UseSystemPasswordChar = false;
+            // 
+            // result
+            // 
+            this.result.BackColor = System.Drawing.Color.White;
+            this.result.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.result.BorderColorNotActive = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.result.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.result.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.result.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
+            this.result.ForeColor = System.Drawing.Color.Black;
+            this.result.Location = new System.Drawing.Point(15, 283);
+            this.result.Name = "result";
+            this.result.MultiLine = true;
+            this.result.Size = new System.Drawing.Size(432, 89);
+            this.result.TabIndex = 34;
+            this.result.TextInput = "Результат";
+            this.result.TextPreview = "Результат";
+            this.result.UseSystemPasswordChar = false;
+            // 
+            // categoryPersonBindingSource
+            // 
+            this.categoryPersonBindingSource.DataSource = typeof(Result_models.Category_Person);
+            // 
+            // armStatusBindingSource
+            // 
+            this.armStatusBindingSource.DataSource = typeof(Result_models.Arm_Status);
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 450);
-            this.Controls.Add(this.CancelButton);
+            this.ClientSize = new System.Drawing.Size(944, 510);
             this.Controls.Add(this.Diagnos);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.result);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.result_date);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.ChairmanTextBox);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label10);
@@ -371,9 +410,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Внесение записи";
             this.Load += new System.EventHandler(this.AddForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryGodnostBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPersonBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.armStatusBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryGodnostBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,8 +433,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
 
         /*Общие сведения об обследуемом*/
         protected internal System.Windows.Forms.TextBox SurnameTextBox;
@@ -411,8 +448,6 @@
         protected internal System.Windows.Forms.TextBox article_trebovanie;
         protected internal System.Windows.Forms.TextBox article_raspisanie;
         protected internal System.Windows.Forms.ComboBox category_godnost;
-        protected internal System.Windows.Forms.TextBox result;
-        protected internal System.Windows.Forms.TextBox Diagnos;
         
         
         protected internal System.Windows.Forms.TextBox textBox2;
@@ -429,5 +464,11 @@
         private System.Windows.Forms.BindingSource categoryPersonBindingSource;
         private System.Windows.Forms.BindingSource armStatusBindingSource;
         private System.Windows.Forms.BindingSource categoryGodnostBindingSource;
+        private System.Windows.Forms.Label label16;
+        protected internal System.Windows.Forms.TextBox ChairmanTextBox;
+        protected internal System.Windows.Forms.DateTimePicker result_date;
+        private System.Windows.Forms.Label label17;
+        private EgoldsGoogleTextBox result;
+        private EgoldsGoogleTextBox Diagnos;
     }
 }

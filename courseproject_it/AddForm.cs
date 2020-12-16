@@ -25,6 +25,7 @@ namespace Result
             ResultMedContext db;
             db = new ResultMedContext();
             db.Persons.Load();
+            Random rnd = new Random(); //для номера заключения
             Person person = new Person
             {
                 /*Общие сведения об освидетельствуемом*/
@@ -40,7 +41,10 @@ namespace Result
                 Article_Trebovanie = article_trebovanie.Text,
                 Diagnos = Diagnos.Text,
                 Category_Godnost = category_godnost.Text,
-                Result = result.Text
+                Result = result.Text,
+                Result_Date = result_date.Text,
+                Result_Id =  rnd.Next(1,100),
+                Other = ChairmanTextBox.Text
             };
 
             //person.Result_Id =
@@ -93,6 +97,24 @@ namespace Result
                 category_godnost.Items.Add(str);
             }
 
+            List<string> Arm_status = new List<string>();//воинское звание
+            Arm_status.AddRange(new string[]
+            {
+                "звание не указано",
+                "Рядовой",  "Ефрейтор",
+                "Младший сержант", "Сержант", "Старший сержант", "Старшина",
+                "Прапорщик","Старший прапорщик",
+                "Младший лейтенант","Лейтенант","Старший лейтенант",
+                "Капитан", "Майор",
+                "Подполковник", "Полковник",
+                "Генерал-майор","Генерал-лейтенант",
+                "Генерал-полковник", "Генерал армии",
+                "Маршал Российской Федераци"
+            });
+            foreach (var str in Arm_status)
+            {
+               arm_status.Items.Add(str);
+            }
         }
 
         private void category_person_SelectedIndexChanged(object sender, EventArgs e)

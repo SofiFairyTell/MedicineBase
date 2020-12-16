@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Result_models;
 
+/*Для экпорта в Excel*/
+using Microsoft.Office.Interop.Excel;
+
+
 namespace Result
 {
+    
     public partial class PersonsTreeView : Form
     {
+        string Name; //имя файла формируется из имени категории
         public PersonsTreeView()
         {
             InitializeComponent();
@@ -31,19 +38,33 @@ namespace Result
                 "10 - Члены семей военнослужащих",
                 "11 - Прочие"
             });
+
+            List<string> Arm_status = new List<string>();//по званию
+            Arm_status.AddRange(new string[]
+            {
+                "звание не указано",
+                "Рядовой",  "Ефрейтор",
+                "Младший сержант", "Сержант", "Старший сержант", "Старшина",
+                "Прапорщик","Старший прапорщик",
+                "Младший лейтенант","Лейтенант","Старший лейтенант",
+                "Капитан", "Майор",
+                "Подполковник", "Полковник",
+                "Генерал-майор","Генерал-лейтенант",
+                "Генерал-полковник", "Генерал армии",
+                "Маршал Российской Федераци"
+
+            });
             try
             {
                 /*Добавление данных о категории в список*/
                 foreach (var item in Category_List)
                 {
-
-                   // node.Text = item;
-                    PersonsTreView.Nodes[0].Nodes[0].Nodes.Add("Категория", item);
-                       
+                    PersonsTreView.Nodes[0].Nodes[0].Nodes.Add("Категория", item);                      
                 }
-                
-                
-                
+                foreach (var item in Arm_status)
+                {
+                    PersonsTreView.Nodes[0].Nodes[1].Nodes.Add("Звание", item);
+                }
             }
             catch (Exception ex)
             {
@@ -51,95 +72,126 @@ namespace Result
             }
         }
 
-        private void DataList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-          
-
-        private void PersonsTreView_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void PersonsTreView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
+            /*После двойного нажатия но узлу из базы будет выведен список всех людей, у которых одно
+             из полей совпадает с содержанием узла*/
             try
             {
 
                 TreeNode node = PersonsTreView.SelectedNode;// Получение выбранного двойным щелчком узла дерева.
 
                 MessageBox.Show(string.Format("You selected: {0}", node.Text)); // Вывод окна с текстом данного узла.
-                /*
-                DataDescriptionGrid.Rows.Clear();
-                DataDescriptionGrid.Columns.Clear();
-                DataGridInit();
-                DataDescriptionGrid.ReadOnly = true;
-                DataDescriptionGrid.Visible = true;
-                AddButton.BringToFront();*/
-                /*
-                                MinimButton.Visible = true;//для закрытия информации об узле
-                                EditButton.Visible = true;//для изменения данных в содержимом узла
-                                AddButton.Visible = true;
-                                DelButton.Visible = true;
-                                */
+
+                Name = node.Text;
+
                 using (var context = new Result_models.ResultMedContext())
                 {
-                    var Data = context.Persons.Where(x => x.Category_Person == node.Text).FirstOrDefault();//найдет только первый элемент, беда, что записано TreView
-                    //var Data = context.Persons.Find(node.Text);
-                    //foreach(IGrouping<int, Result_models.Person> group in Dt)
-                    //{
-                    //    foreach (Person person in group)
-                    //    {
-                    //        DataDescriptionGrid.Columns.Add("Surname", "Фамилия");
-                    //        DataDescriptionGrid.Columns.Add("Name", "Имя");
-                    //        DataDescriptionGrid.Columns.Add("MiddleName", "Отчество");
-                    //        DataDescriptionGrid.Columns.Add("Diagnos", "Диагноз");
-                    //        DataDescriptionGrid.Columns.Add("Result", "Результат");
+                    /*------------Удалим ранее введенные данные---------*/
+                    DataDescriptionGrid.Rows.Clear();
+                    DataDescriptionGrid.Columns.Clear();
+                    /*-------------------------------------------------*/
 
-
-                    //        DataDescriptionGrid.Rows.Add(1);
-                    //        DataDescriptionGrid.Rows[0].Cells[0].Value = person.Surname.ToString();//записываем в таблицу или выводим таблицу
-                    //        DataDescriptionGrid.Rows[0].Cells[1].Value = person.Name.ToString();//записываем в таблицу или выводим таблицу
-                    //        DataDescriptionGrid.Rows[0].Cells[2].Value = person.Middlename.ToString();//записываем в таблицу или выводим таблицу
-                    //        DataDescriptionGrid.Rows[0].Cells[3].Value = person.Diagnos.ToString();//записываем в таблицу или выводим таблицу
-                    //        DataDescriptionGrid.Rows[0].Cells[4].Value = person.Result.ToString();//записываем в таблицу или выводим таблицу
-
-                    //    }
-                    //}
+                    /*------Наименования столбцов----------------------*/
                     DataDescriptionGrid.Columns.Add("Surname", "Фамилия");
                     DataDescriptionGrid.Columns.Add("Name", "Имя");
                     DataDescriptionGrid.Columns.Add("MiddleName", "Отчество");
                     DataDescriptionGrid.Columns.Add("Diagnos", "Диагноз");
                     DataDescriptionGrid.Columns.Add("Result", "Результат");
+                    DataDescriptionGrid.Columns.Add("Date", "Дата");
+                    DataDescriptionGrid.Columns.Add("Doctor", "Врач");
+                    /*-------------------------------------------------*/
 
+                    DataDescriptionGrid.Columns[4].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    DataDescriptionGrid.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; //автоматическое выравнивание текста в колонке
+                    DataDescriptionGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+                    /*--------Найдем в БД освидетельствуемого с нужной категорией--------------*/
+                    var Person_tb = from u in context.Persons where u.Category_Person == node.Text select u;
 
-                    DataDescriptionGrid.Rows.Add(1);
-                    DataDescriptionGrid.Rows[0].Cells[0].Value = Data.Surname.ToString();//записываем в таблицу или выводим таблицу
-                    DataDescriptionGrid.Rows[0].Cells[1].Value = Data.Name.ToString();//записываем в таблицу или выводим таблицу
-                    DataDescriptionGrid.Rows[0].Cells[2].Value = Data.Middlename.ToString();//записываем в таблицу или выводим таблицу
-                    DataDescriptionGrid.Rows[0].Cells[3].Value = Data.Diagnos.ToString();//записываем в таблицу или выводим таблицу
-                    DataDescriptionGrid.Rows[0].Cells[4].Value = Data.Result.ToString();//записываем в таблицу или выводим таблицу
+                    if(Person_tb != null)
+                    {
+                     /*---Определим сколько необходимо создать строк для загрузки данных-------*/
+                        int rows = Person_tb.Count();
+                        DataDescriptionGrid.Rows.Add(rows);
+                        int i = 0;
+                    /*--------------------------Начало загрузки данных----------------------*/
+                        foreach (var person in Person_tb)
+                            {
+                                DataDescriptionGrid.Rows[i].Cells[0].Value = person.Surname.ToString();
+                                DataDescriptionGrid.Rows[i].Cells[1].Value = person.Name.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[2].Value = person.Middlename.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[3].Value = person.Diagnos.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[4].Value = person.Result.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[5].Value = person.Result_Date.ToString();//записываем в таблицу или выводим таблицу
+                                DataDescriptionGrid.Rows[i].Cells[6].Value = person.Other.ToString();//записываем в таблицу или выводим таблицу
+                            if (i!= rows) //увеличим счетчик для новой строки
+                                    i++;
+                            
+                            }
+                        DataDescriptionGrid.Rows[i].Cells[5].Value ="Итого по категории:";//записываем в таблицу или выводим таблицу
+                        DataDescriptionGrid.Rows[i].Cells[6].Value = Person_tb.Count();//записываем в таблицу или выводим таблицу
+
+                    }
+                    else
+                    {
+                        MessageBox.Show($"По вашему запросу ничего не найдено!\n", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                   
 
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при щелчке по узлу!\nДополнительные сведения:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void PersonsTreView_AfterSelect(object sender, TreeViewEventArgs e)
+        private void ExportToExcel(string Name)
         {
+            try
+            {
 
+                Microsoft.Office.Interop.Excel.Application exApp = new Microsoft.Office.Interop.Excel.Application();
+                exApp.Visible = true;
+                exApp.Workbooks.Add();
+                Worksheet workSheet = (Worksheet)exApp.ActiveSheet;
+                workSheet.Cells[1, 1] = "Фамилия";
+                workSheet.Cells[1, 2] = "Имя";
+                workSheet.Cells[1, 3] = "Отчество";
+                workSheet.Cells[1, 4] = "Диагноз";
+                workSheet.Cells[1, 5] = "Результат";
+                workSheet.Cells[1, 6] = "Дата";
+                workSheet.Cells[1, 7] = "Врач";
+                int rowExcel = 2;
+                for (int i = 0; i < DataDescriptionGrid.Rows.Count; i++)
+                {
+                    workSheet.Cells[rowExcel, "A"] = DataDescriptionGrid.Rows[i].Cells[0].Value;
+                    workSheet.Cells[rowExcel, "B"] = DataDescriptionGrid.Rows[i].Cells[1].Value;
+                    workSheet.Cells[rowExcel, "C"] = DataDescriptionGrid.Rows[i].Cells[2].Value;
+                    workSheet.Cells[rowExcel, "D"] = DataDescriptionGrid.Rows[i].Cells[3].Value;
+                    workSheet.Cells[rowExcel, "E"] = DataDescriptionGrid.Rows[i].Cells[4].Value;
+                    workSheet.Cells[rowExcel, "F"] = DataDescriptionGrid.Rows[i].Cells[5].Value;
+                    workSheet.Cells[rowExcel, "G"] = DataDescriptionGrid.Rows[i].Cells[6].Value;
+
+                    ++rowExcel;
+                }
+                //На последней строке выведем итого по категории
+
+                string directory = AppDomain.CurrentDomain.BaseDirectory;
+                string path = (Name + ".xls");
+                string path2 = directory + "\\";
+                workSheet.SaveAs(directory + Name);
+                exApp.Quit();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ошибка при щелчке по узлу!\nДополнительные сведения:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void PersonsTreView_Click(object sender, EventArgs e)
+        private void ExportExcellButton_DoubleClick(object sender, EventArgs e)
         {
-          
-
-
+            ExportToExcel(Name);
         }
     }
 }

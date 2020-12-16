@@ -31,7 +31,7 @@ namespace Result_models
         public string Result_Date {get;set;}
         public string Result_Prichina {get;set;}
         public string Other {get;set;}   
-
+        public string Chairman { get; set; }//ФИО ответственного за составленную справку
         /*Списки для создания таблиц*/
         public ICollection<Category_Godnost> Godnost_list {get; set;} //список людей выбранной категории
         public ICollection<Category_Person> Category_list {get; set;} //список людей выбранной категории
@@ -85,7 +85,10 @@ namespace Result_models
         {
             public ResultMedContext()
                : base("ResultMed")
-            { }
+            {
+                Database.SetInitializer<ResultMedContext>(null);
+            }
+        
 
             public DbSet<Person> Persons { get; set; }
           //public DbSet<Category_Person>  { get; set; }
