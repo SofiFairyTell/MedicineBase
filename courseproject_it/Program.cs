@@ -20,8 +20,8 @@ namespace Result
             
             //Application.Run(new AllPerson());
             //Application.Run(new PersonsTreeView());
-            Application.Run(new Menu());
-           // Application.Run(new SecureForm());
+           // Application.Run(new Menu());
+           Application.Run(new SecureForm());
         }
     }
 }

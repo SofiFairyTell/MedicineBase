@@ -8,7 +8,7 @@
     <ProjectGuid>{A4045DE1-0F2F-46BE-8F14-8A0D1F13BE1B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>courseproject_it</RootNamespace>
-    <AssemblyName>courseproject_it</AssemblyName>
+    <AssemblyName>DataBaseVVC</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

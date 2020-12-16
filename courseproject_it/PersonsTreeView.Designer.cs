@@ -105,7 +105,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PersonsTreeView";
-            this.Text = "PersonsTreeView";
+            this.Text = "Аналитика";
             ((System.ComponentModel.ISupportInitialize)(this.DataDescriptionGrid)).EndInit();
             this.ResumeLayout(false);
 

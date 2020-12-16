@@ -352,8 +352,8 @@
             this.result.FontTextPreview = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.result.ForeColor = System.Drawing.Color.Black;
             this.result.Location = new System.Drawing.Point(15, 283);
-            this.result.Name = "result";
             this.result.MultiLine = true;
+            this.result.Name = "result";
             this.result.Size = new System.Drawing.Size(432, 89);
             this.result.TabIndex = 34;
             this.result.TextInput = "Результат";

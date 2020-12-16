@@ -191,7 +191,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.AddButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.AddButton.BackColorAdditional = System.Drawing.Color.Gray;
             this.AddButton.BackColorGradientEnabled = false;
             this.AddButton.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
@@ -201,13 +201,13 @@
             this.AddButton.BorderColorOnHoverEnabled = false;
             this.AddButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.AddButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.AddButton.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(606, 371);
+            this.AddButton.Location = new System.Drawing.Point(307, 371);
             this.AddButton.Name = "AddButton";
             this.AddButton.RippleColor = System.Drawing.Color.Black;
             this.AddButton.RoundingEnable = false;
-            this.AddButton.Size = new System.Drawing.Size(193, 38);
+            this.AddButton.Size = new System.Drawing.Size(304, 38);
             this.AddButton.TabIndex = 8;
             this.AddButton.Text = "Добавить запись";
             this.AddButton.TextHover = null;
@@ -218,7 +218,7 @@
             // 
             // DelButton
             // 
-            this.DelButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.DelButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.DelButton.BackColorAdditional = System.Drawing.Color.Gray;
             this.DelButton.BackColorGradientEnabled = false;
             this.DelButton.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
@@ -228,13 +228,13 @@
             this.DelButton.BorderColorOnHoverEnabled = false;
             this.DelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DelButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.DelButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.DelButton.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.DelButton.ForeColor = System.Drawing.Color.White;
-            this.DelButton.Location = new System.Drawing.Point(834, 371);
+            this.DelButton.Location = new System.Drawing.Point(653, 371);
             this.DelButton.Name = "DelButton";
             this.DelButton.RippleColor = System.Drawing.Color.Black;
             this.DelButton.RoundingEnable = false;
-            this.DelButton.Size = new System.Drawing.Size(193, 38);
+            this.DelButton.Size = new System.Drawing.Size(275, 38);
             this.DelButton.TabIndex = 9;
             this.DelButton.Text = "Удалить запись";
             this.DelButton.TextHover = null;
@@ -245,7 +245,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.SaveButton.BackColor = System.Drawing.Color.MidnightBlue;
             this.SaveButton.BackColorAdditional = System.Drawing.Color.Gray;
             this.SaveButton.BackColorGradientEnabled = false;
             this.SaveButton.BackColorGradientMode = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
@@ -255,13 +255,13 @@
             this.SaveButton.BorderColorOnHoverEnabled = false;
             this.SaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveButton.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.SaveButton.Font = new System.Drawing.Font("Times New Roman", 8.25F);
+            this.SaveButton.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.SaveButton.ForeColor = System.Drawing.Color.White;
-            this.SaveButton.Location = new System.Drawing.Point(1055, 371);
+            this.SaveButton.Location = new System.Drawing.Point(979, 371);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.RippleColor = System.Drawing.Color.Black;
             this.SaveButton.RoundingEnable = false;
-            this.SaveButton.Size = new System.Drawing.Size(193, 38);
+            this.SaveButton.Size = new System.Drawing.Size(280, 38);
             this.SaveButton.TabIndex = 10;
             this.SaveButton.Text = "Сохранить изменения";
             this.SaveButton.TextHover = null;

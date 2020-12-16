@@ -130,6 +130,7 @@ namespace Result
                 tbInput.Multiline = value;
             }
         }
+        public char PasswordChar { get; set; }
         private void AdjustTextBoxInput()
         {
             tbInput = new TextBox();

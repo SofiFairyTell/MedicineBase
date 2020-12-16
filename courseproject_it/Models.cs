@@ -88,7 +88,6 @@ namespace Result_models
             {
                 Database.SetInitializer<ResultMedContext>(null);
             }
-        
 
             public DbSet<Person> Persons { get; set; }
           //public DbSet<Category_Person>  { get; set; }
