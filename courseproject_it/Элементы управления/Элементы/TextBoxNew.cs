@@ -119,7 +119,17 @@ namespace Result
 
             TextPreviewAction(TextInput.Length > 0);
         }
-
+        public bool MultiLine
+        {
+            get
+            {
+                return tbInput.Multiline;
+            }
+            set
+            {
+                tbInput.Multiline = value;
+            }
+        }
         private void AdjustTextBoxInput()
         {
             tbInput = new TextBox();
@@ -129,7 +139,7 @@ namespace Result
             tbInput.ForeColor = ForeColor;
             tbInput.Font = Font;
             tbInput.Visible = false;
-
+            tbInput.Multiline = true;
             int offset = TextRenderer.MeasureText(TextPreview, FontTextPreview).Height / 2;
             tbInput.Location = new Point(5, Height / 2 - offset);
             tbInput.Size = new Size(Width - 10, tbInput.Height);

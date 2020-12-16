@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Список по категориям");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Список по должности");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Список по воинскому званию");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Список освидетельствуемых", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2});
@@ -47,7 +47,7 @@
             treeNode1.Name = "CategoryList";
             treeNode1.Text = "Список по категориям";
             treeNode2.Name = "ArmStatusList";
-            treeNode2.Text = "Список по должности";
+            treeNode2.Text = "Список по воинскому званию";
             treeNode3.Name = "PersonList";
             treeNode3.Text = "Список освидетельствуемых";
             this.PersonsTreView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {

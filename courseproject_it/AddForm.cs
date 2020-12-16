@@ -25,6 +25,7 @@ namespace Result
             ResultMedContext db;
             db = new ResultMedContext();
             db.Persons.Load();
+            Random rnd = new Random(); //для номера заключения
             Person person = new Person
             {
                 /*Общие сведения об освидетельствуемом*/
@@ -41,7 +42,9 @@ namespace Result
                 Diagnos = Diagnos.Text,
                 Category_Godnost = category_godnost.Text,
                 Result = result.Text,
-                Chairman = ChairmanTextBox.Text
+                Result_Date = result_date.Text,
+                Result_Id =  rnd.Next(1,100),
+                Other = ChairmanTextBox.Text
             };
 
             //person.Result_Id =
