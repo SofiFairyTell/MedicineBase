@@ -95,7 +95,8 @@ namespace Result
                                 DataDescriptionGrid.Rows[i].Cells[2].Value = person.Middlename.ToString();//записываем в таблицу или выводим таблицу
                                 DataDescriptionGrid.Rows[i].Cells[3].Value = person.Diagnos.ToString();//записываем в таблицу или выводим таблицу
                                 DataDescriptionGrid.Rows[i].Cells[4].Value = person.Result.ToString();//записываем в таблицу или выводим таблицу
-                                if (i!= rows) //увеличим счетчик для новой строки
+                                DataDescriptionGrid.Rows[i].Cells[5].Value = person.Other.ToString();//записываем в таблицу или выводим таблицу
+                            if (i!= rows) //увеличим счетчик для новой строки
                                     i++;
                             }
                     }

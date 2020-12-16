@@ -42,7 +42,7 @@ namespace Result
                 Category_Godnost = category_godnost.Text,
                 Result = result.Text,
                 Other = ChairmanTextBox.Text //в это поле запишем ответственного председателя
-                //Chairman = ChairmanTextBox.Text
+               // Chairman = ChairmanTextBox.Text
             };
 
             //person.Result_Id =
