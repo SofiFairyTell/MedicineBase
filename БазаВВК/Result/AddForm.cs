@@ -40,7 +40,8 @@ namespace Result
                 Article_Trebovanie = article_trebovanie.Text,
                 Diagnos = Diagnos.Text,
                 Category_Godnost = category_godnost.Text,
-                Result = result.Text
+                Result = result.Text,
+                Other = ChairmanTextBox.Text //в это поле запишем ответственного председателя
                 //Chairman = ChairmanTextBox.Text
             };
 

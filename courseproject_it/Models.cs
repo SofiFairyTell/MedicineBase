@@ -85,7 +85,10 @@ namespace Result_models
         {
             public ResultMedContext()
                : base("ResultMed")
-            { }
+            {
+                Database.SetInitializer<ResultMedContext>(null);
+            }
+        
 
             public DbSet<Person> Persons { get; set; }
           //public DbSet<Category_Person>  { get; set; }
