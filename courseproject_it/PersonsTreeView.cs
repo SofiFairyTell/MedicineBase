@@ -2,21 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Result_models;
-
-/*Для экпорта в Excel*/
-using Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;//Для экспорта в Excel
 
 
 namespace Result
 {
-    
     public partial class PersonsTreeView : Form
     {
         string Name; //имя файла формируется из имени категории
@@ -146,6 +142,12 @@ namespace Result
             }
         }
 
+        // Выполнение загрузки данных в файл Excell
+        private void ExportExcellButton_DoubleClick(object sender, EventArgs e)
+        {
+            ExportToExcel(Name);
+        }
+
         private void ExportToExcel(string Name)
         {
             try
@@ -175,8 +177,8 @@ namespace Result
 
                     ++rowExcel;
                 }
-                //На последней строке выведем итого по категории
 
+                //На последней строке выведем итого по категории
                 string directory = AppDomain.CurrentDomain.BaseDirectory;
                 string path = (Name + ".xls");
                 string path2 = directory + "\\";
@@ -187,11 +189,6 @@ namespace Result
             {
                 MessageBox.Show($"Ошибка при щелчке по узлу!\nДополнительные сведения:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void ExportExcellButton_DoubleClick(object sender, EventArgs e)
-        {
-            ExportToExcel(Name);
         }
     }
 }

@@ -17,11 +17,7 @@ namespace Result
             Animator.Start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            //Application.Run(new AllPerson());
-            //Application.Run(new PersonsTreeView());
             Application.Run(new Menu());
-           // Application.Run(new SecureForm());
         }
     }
 }

@@ -17,7 +17,7 @@
             {
                 components.Dispose();
             }
-            base.Dispose(disposing);
+            base.Dispfose(disposing);
         }
 
         #region Windows Form Designer generated code
@@ -158,7 +158,6 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Рабочее пространство";
-            this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);
 
         }

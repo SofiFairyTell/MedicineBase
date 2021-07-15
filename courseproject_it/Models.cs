@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 //git@github.com:SofiFairyTell/courseproject_it.git HTTPS://github.com/SofiFairyTell/courseproject_it.git 
 namespace Result_models
 {
+// описание таблицы Освидетельствуемый   
   [Table("Освидетельствуемый")]
    public class Person //освидетельствуемый
     {
@@ -18,9 +19,9 @@ namespace Result_models
         
         /*Категории*/
         public string Category_Person {get;set;}//категория_освидетельствуемого
-        public string Arm_Status {get;set;}//
-        
+        public string Arm_Status {get;set;}    
         //public DateTime Birtday {get;set;}
+
         /*Все что связано с диагнозом*/
         public string Article_Trebovanie {get;set;}
         public string Article_Raspisanie {get;set;}
@@ -32,6 +33,7 @@ namespace Result_models
         public string Result_Prichina {get;set;}
         public string Other {get;set;}   
         public string Chairman { get; set; }//ФИО ответственного за составленную справку
+
         /*Списки для создания таблиц*/
         public ICollection<Category_Godnost> Godnost_list {get; set;} //список людей выбранной категории
         public ICollection<Category_Person> Category_list {get; set;} //список людей выбранной категории
@@ -44,7 +46,6 @@ namespace Result_models
                 Pers_Arm_list = new List<Arm_Status>();
                 ResPrich_list = new List<Result_Prichina>();
             }   
-   
     }
 
 //таблицы для подстановки значений в таблицу Освидетельствуемый
@@ -87,11 +88,8 @@ namespace Result_models
                : base("ResultMed")
             {
                 Database.SetInitializer<ResultMedContext>(null);
-            }
-        
+            }    
 
             public DbSet<Person> Persons { get; set; }
-          //public DbSet<Category_Person>  { get; set; }
-            //public DbSet<Team> Teams {get;set;}
         }
 }
