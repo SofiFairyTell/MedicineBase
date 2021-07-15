@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace Result
 {
+    //Работа с главным меню, которое состоит из 3-х основных действий: 
+    // 1. Окрыть базу данных - OpenAllPersonForm_Click
+    // 2. Добавить данные о новом пациенте - OpenAddForm_Click
+    // 3. Получить данные о пациентах - OpenAnalizForm_Click
+    
     public partial class Menu : Form
     {
         public Menu()
@@ -23,11 +28,6 @@ namespace Result
                 MessageBox.Show($"Ошибка при щелчке по узлу!\nДополнительные сведения:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void OpenAllPersonForm_Click(object sender, EventArgs e)

@@ -58,12 +58,10 @@
             this.UserChooseComboBox.Size = new System.Drawing.Size(378, 31);
             this.UserChooseComboBox.TabIndex = 1;
             this.UserChooseComboBox.UseWaitCursor = true;
-            this.UserChooseComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // пользовательBindingSource
             // 
             this.пользовательBindingSource.DataMember = "Пользователь";
-            this.пользовательBindingSource.CurrentChanged += new System.EventHandler(this.пользовательBindingSource_CurrentChanged);
             // 
             // ПользовательНадпись
             // 
@@ -78,10 +76,6 @@
             this.ПользовательНадпись.TabIndex = 0;
             this.ПользовательНадпись.Text = "Пользователь";
             this.ПользовательНадпись.UseWaitCursor = true;
-            // 
-            // СообщениеПароль
-            // 
-            this.СообщениеПароль.Popup += new System.Windows.Forms.PopupEventHandler(this.СообщениеПароль_Popup);
             // 
             // ExitButton
             // 
@@ -174,7 +168,6 @@
             this.Name = "SecureForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Результаты медицинского освидетельствования";
-            this.Load += new System.EventHandler(this.SecureForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.пользовательBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);

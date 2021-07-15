@@ -21,12 +21,6 @@ namespace Result
             Close();
         }
 
-        private void SecureForm_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "kinoDataSet.Пользователь". При необходимости она может быть перемещена или удалена.
-           // this.пользовательTableAdapter.Fill(this.kinoDataSet.Пользователь);
-        }
-
         private void OkButton_Click(object sender, EventArgs e)
         {
           if (PasswordTextBox.Text != "")
@@ -51,7 +45,7 @@ namespace Result
                         //Form26 x = new Form26();
                         //x.ShowDialog();
                     }
-               // }
+                // }
                 //else
                 //{
                 //    MessageBox.Show("Пароль неверный");
@@ -61,21 +55,6 @@ namespace Result
             {
                 СообщениеПароль.Show("Поле ввода пароля не может быть пустым", PasswordTextBox, 10000);
             } 
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void пользовательBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void СообщениеПароль_Popup(object sender, PopupEventArgs e)
-        {
-
         }
     }
 }
